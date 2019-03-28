@@ -34,6 +34,9 @@ Inicializar terraform:
 `terraform init`
 
 Ver el resumen de lo que se ejecutará:
+`terraform plan`
+
+Finalmente para aplicar los cambios, se ejecuta:
 `terraform apply`
 
 ---
@@ -47,4 +50,5 @@ Ver el resumen de lo que se ejecutará:
 Existe un *output* con el nombre del DNS del ELB, que será usado para acceder al servicio a través del navegador o curl:
 
 > curl myElb-1301689268.us-east-1.elb.amazonaws.com
+>
 > Hello world, from EC2
