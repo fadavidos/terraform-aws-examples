@@ -1,4 +1,4 @@
-# terraform-aws-examples
+# Terraform-aws-examples
 
 Repositorio con el proposito de poner en práctica conocimientos sobre [AWS](https://aws.amazon.com/) y [Terraform](https://www.terraform.io/)
 
@@ -43,11 +43,15 @@ Finalmente para aplicar los cambios, se ejecuta:
 
 ## Outputs:
 
+Al ejecutar `terraform apply` se mostraran las variables de salida:
+
+
 >Outputs:
 >
 >out_dns_elb = myElb-1301689268.us-east-1.elb.amazonaws.com
 
-Existe un *output* con el nombre del DNS del ELB, que será usado para acceder al servicio a través del navegador o curl:
+
+Con el nombre del dns del ELB podrémos acceder por curl o el navegador y obtendremos lo siguiente:
 
 > curl myElb-1301689268.us-east-1.elb.amazonaws.com
 >
