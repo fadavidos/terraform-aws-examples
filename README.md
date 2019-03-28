@@ -10,7 +10,7 @@
 
 Visualmente lo que queremos es llegar a esto:
 
-![alt tet](https://github.com/fadavidos/terraform-aws-examples/images/Topology.png "Topoología")
+![alt tet](https://github.com/fadavidos/terraform-aws-examples/blob/master/images/Topology.png "Topoología")
 
 
 ## Contenido:
