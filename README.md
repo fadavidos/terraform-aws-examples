@@ -10,6 +10,14 @@ Visualmente lo que queremos es llegar a esto:
 
 ![alt tet](https://github.com/fadavidos/terraform-aws-examples/blob/master/images/Topology.png "Topoología")
 
+### ELB
+
+El ELB escucha peticiones por el purto 80 y las enruta al puerto dado en la variable `in_server_port`
+
+### Security Group
+
+El Security Group recibe peticiones de cualquier ip al puerto dado en la variable `in_server_port`
+
 ---
 
 ## Variables:
