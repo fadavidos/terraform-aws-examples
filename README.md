@@ -1,6 +1,6 @@
 # Terraform-aws-examples
 
-Repositorio con el proposito de poner en práctica conocimientos sobre [AWS](https://aws.amazon.com/) y [Terraform](https://www.terraform.io/)
+Repositorio con el proposito de poner en práctica conocimientos sobre [AWS](https://aws.amazon.com/) y [Terraform](https://www.terraform.io/).
 
 Se va a desplegar un [ELB](https://aws.amazon.com/elasticloadbalancing/getting-started/) que recibe peticiones HTTP por el puerto 80 y las distribuye entre 3 instancias de [EC2](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) auto estacaldas, que tratará de mantener 3 instancias siempre disponibles.
 
@@ -14,11 +14,11 @@ Visualmente lo que queremos es llegar a esto:
 
 ### ELB
 
-El ELB escucha peticiones por el purto 80 y las enruta al puerto dado en la variable `in_server_port`
+El ELB escucha peticiones por el purto 80 y las enruta al puerto dado en la variable `in_server_port` hacia una de las instancias de EC2.
 
 ### Security Group
 
-El Security Group recibe peticiones de cualquier ip al puerto dado en la variable `in_server_port`
+El Security Group recibe peticiones de cualquier ip al puerto dado en la variable `in_server_port`.
 
 ---
 
@@ -60,6 +60,9 @@ Al ejecutar `terraform apply` se mostraran las variables de salida:
 >
 >out_dns_elb = myElb-1301689268.us-east-1.elb.amazonaws.com
 
+---
+
+## Consumir servicios
 
 Con el nombre del dns del ELB podrémos acceder por curl o el navegador y obtendremos lo siguiente:
 
