@@ -2,7 +2,7 @@
 
 This repository aims to practice concepts about [AWS](https://aws.amazon.com/) and [Terraform](https://www.terraform.io/).
 
-Se va a desplegar un [ELB](https://aws.amazon.com/elasticloadbalancing/getting-started/) que recibe peticiones HTTP por el puerto 80 y las distribuye entre 3 instancias de [EC2](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) auto estacaldas, que tratará de mantener 3 instancias siempre disponibles.
+We going to deploy an [ELB](https://aws.amazon.com/elasticloadbalancing/getting-started/) que recibe peticiones HTTP por el puerto 80 y las distribuye entre 3 instancias de [EC2](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) auto estacaldas, que tratará de mantener 3 instancias siempre disponibles.
 
 ---
 
