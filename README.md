@@ -73,4 +73,4 @@ Con el nombre del dns del ELB podrémos acceder por curl o el navegador y obtend
 
 ## Remote Stata Storage
 
-We're going to use [terragrunt](https://github.com/gruntwork-io/terragrunt) that configures remote state automatically and provides locking by using [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
+We're going to use [terragrunt](https://github.com/gruntwork-io/terragrunt) that allow us configure remote state automatically and provides locking by using [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
