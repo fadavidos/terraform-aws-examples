@@ -69,3 +69,8 @@ Con el nombre del dns del ELB podrémos acceder por curl o el navegador y obtend
 > curl myElb-1301689268.us-east-1.elb.amazonaws.com
 >
 > Hello world, from EC2
+
+
+## Remote Stata Storage
+
+We're going to use [terragrunt](https://github.com/gruntwork-io/terragrunt) that configures remote state automatically and provides locking by using [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
