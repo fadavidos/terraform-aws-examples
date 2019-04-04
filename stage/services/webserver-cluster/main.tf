@@ -5,7 +5,7 @@ provider "aws" {
 
 data "aws_availability_zones" "all" {}
 
-resource "aws_launch_configuration" "my_launch_example" {
+resource "aws_launch_configuration" "my_launch" {
 	image_id 					= "ami-40d28157"
 	instance_type 		= "t2.micro"
 	security_groups 	= ["${aws_security_group.sg_instances.id}"]
@@ -22,7 +22,7 @@ resource "aws_launch_configuration" "my_launch_example" {
 }
 
 resource "aws_autoscaling_group" "my_auto_scaling" {
-	launch_configuration 	= "${aws_launch_configuration.my_launch_example.id}"
+	launch_configuration 	= "${aws_launch_configuration.my_launch.id}"
 	availability_zones 		= ["${data.aws_availability_zones.all.names}"]
 
 	load_balancers 				= ["${aws_elb.my_elb_asg.name}"]
@@ -88,4 +88,13 @@ resource "aws_security_group" "sg_elb" {
 		protocol 		= "-1"
 		cidr_blocks	= ["0.0.0.0/0"]
 	}
+}
+
+terraform {
+  backend "s3" {
+    bucket    = "s3-status"
+    key       = "stage/services/webserver-cluster/terraform.tfstate"
+    region    = "us-east-1"
+    encrypt   = true
+  }
 }

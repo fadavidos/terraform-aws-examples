@@ -40,6 +40,12 @@ A través del *user_data* en el *launch_configuration* se crea una página html 
 
 ## Construir:
 
+When you need to initialize terragrunt, then you must run next comand line:
+
+`export AWS_PROFILE="yourProfile"`
+
+`terragrunt init -backend-config="profile=yourProfile"`
+
 Inicializar terraform:
 `terraform init`
 
@@ -74,3 +80,4 @@ Con el nombre del dns del ELB podrémos acceder por curl o el navegador y obtend
 ## Remote Stata Storage
 
 We're going to use [terragrunt](https://github.com/gruntwork-io/terragrunt) that allow us configure remote state automatically and provides locking by using [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
+
