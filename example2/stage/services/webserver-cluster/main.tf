@@ -93,7 +93,7 @@ resource "aws_security_group" "sg_elb" {
 terraform {
   backend "s3" {
     bucket    = "s3-status"
-    key       = "stage/services/webserver-cluster/terraform.tfstate"
+    key       = "example2/stage/services/webserver-cluster/terraform.tfstate"
     region    = "us-east-1"
     encrypt   = true
   }
