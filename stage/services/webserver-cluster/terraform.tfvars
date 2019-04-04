@@ -1,5 +1,5 @@
 terragrunt = {
   include {
-    path = "../../../terraform.tfvars"
+    path = "${find_in_parent_folders()}"
   }
 }

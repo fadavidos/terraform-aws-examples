@@ -39,7 +39,7 @@ resource "aws_autoscaling_group" "my_auto_scaling" {
 }
 
 resource "aws_security_group" "sg_instances" {
-	name 			= "sgexamples"
+	name 			= "sg_examples"
 	ingress {
 		from_port 	= "${var.in_server_port}"
 		to_port 		= "${var.in_server_port}"
