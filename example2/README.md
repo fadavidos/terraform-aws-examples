@@ -10,7 +10,13 @@ We going to deploy an [ELB](https://aws.amazon.com/elasticloadbalancing/getting-
 
 Visualmente lo que queremos es llegar a esto:
 
-![alt tet](https://github.com/fadavidos/terraform-aws-examples/blob/master/images/Topology.png "Topoología")
+![alt tet](https://github.com/fadavidos/terraform-aws-examples/blob/master/example2/images/Topology.png "Topoología")
+
+## Remote State Storage
+
+We're going to use [terragrunt](https://github.com/gruntwork-io/terragrunt) that allow us configure remote state automatically and provides locking by using [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
+
+We're going to isolate state files. For the time being, we going to have 1 environment (stage). Why ? The whole point of having separate environments is that they are isolated from each other, so if you are managing all the environments from a single set of Terraform configurations, you are breaking that isolation. 
 
 ### ELB
 
@@ -77,7 +83,5 @@ Con el nombre del dns del ELB podrémos acceder por curl o el navegador y obtend
 > Hello world, from EC2
 
 
-## Remote Stata Storage
 
-We're going to use [terragrunt](https://github.com/gruntwork-io/terragrunt) that allow us configure remote state automatically and provides locking by using [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
 
