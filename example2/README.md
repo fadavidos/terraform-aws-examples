@@ -83,5 +83,10 @@ Con el nombre del dns del ELB podrémos acceder por curl o el navegador y obtend
 > Hello world, from EC2
 
 
+## How to export variables ?
+
+> export TF_VAR_db_password="(YOUR_DB_PASSWORD)"
+Admin1234$
+
 
 

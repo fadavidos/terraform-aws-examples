@@ -5,6 +5,16 @@ provider "aws" {
 
 data "aws_availability_zones" "all" {}
 
+data "terraform_remote_stage" "db" {
+	backend = "s3"
+
+	config {
+		bucket 	= "s3-status"
+		key 		= "example2/stage/services/data-stores/mysql/terraform.tfstate"
+		region 	= "us-east-1"
+	}
+}
+
 resource "aws_launch_configuration" "my_launch" {
 	image_id 					= "ami-40d28157"
 	instance_type 		= "t2.micro"
@@ -13,6 +23,8 @@ resource "aws_launch_configuration" "my_launch" {
 	user_data 				=  <<-EOF
 	#!/bin/bash
 	echo "Hello world, from EC2" > index.html
+	echo "${terraform_remote_stage.db.address}" >> index.html
+	echo "${terraform_remote_stage.db.port}" >> index.html
 	nohup busybox httpd -ff -p "${var.in_server_port}" &
 	EOF
 
