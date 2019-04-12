@@ -20,7 +20,7 @@ We're going to isolate state files. For the time being, we going to have 1 envir
 
 ### ELB
 
-El ELB escucha peticiones por el purto 80 y las enruta al puerto dado en la variable `in_server_port` hacia una de las instancias de EC2.
+ELB listens request through port 80 and then routes it to port `in_server_port` to a instance EC2
 
 ### Security Group
 
