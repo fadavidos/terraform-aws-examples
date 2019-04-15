@@ -2,15 +2,17 @@
 
 This repository aims to practice concepts about [AWS](https://aws.amazon.com/) and [Terraform](https://www.terraform.io/).
 
-We going to deploy an [ELB](https://aws.amazon.com/elasticloadbalancing/getting-started/) que recibe peticiones HTTP por el puerto 80 y las distribuye entre 3 instancias de [EC2](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) auto estacaldas, que tratará de mantener 3 instancias siempre disponibles.
+We going to deploy an [ELB](https://aws.amazon.com/elasticloadbalancing/getting-started/) that receives HTTP requests through port 80 then It distributes them among 3 [EC2](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) instances, with auto-scaling. That auto-scaling going to try keep 3 EC2 instances always running.
 
 ---
 
-## Arquitectura:
+## Architecture:
 
-Visualmente lo que queremos es llegar a esto:
+Visually what we want to achieve is this:
 
-![alt tet](https://github.com/fadavidos/terraform-aws-examples/blob/master/example2/images/Topology.png "Topoología")
+![alt tet](https://github.com/fadavidos/terraform-aws-examples/blob/master/example2/images/Topology.png "Topoology")
+
+---
 
 ## Remote State Storage
 
@@ -18,21 +20,26 @@ We're going to use [terragrunt](https://github.com/gruntwork-io/terragrunt) that
 
 We're going to isolate state files. For the time being, we going to have 1 environment (stage). Why ? The whole point of having separate environments is that they are isolated from each other, so if you are managing all the environments from a single set of Terraform configurations, you are breaking that isolation. 
 
-### ELB
+---
+
+## ELB
 
 ELB listens request through port 80 and then routes it to port `in_server_port` to a instance EC2
 
-### Security Group
+---
 
-El Security Group recibe peticiones de cualquier ip al puerto dado en la variable `in_server_port`.
+## Security Group
+
+The Security Group receives requests from any ip to the given port in the variable `in_server_port`.
 
 ---
 
 ## Variables:
 
-1. Por defecto se configura el puerto `8080` para que se escuchen las peticiones HTTP.
-2. Se pide el nombre del profile que se desea utilizar. Los profiles se configuran en `~/.aws/credentials`
-3. La región se deja por defecto en *us-east-1* para mostrar como definir una variable por defecto.
+1. *`in_server_port`:* By default we configure port `8080` to listen to the HTTP request
+2. *`in_profile`:* The name of the profile you want to use is requested. The profiles are set to `~/.aws/credentials`
+3. *`in_region`:* By default the name of region is *us-east-1*.
+4. *`name_instance_launch`:* By default the name of instance launch is *Terraform-asg-axample*
 
 ---
 
