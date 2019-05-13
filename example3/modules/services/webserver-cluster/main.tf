@@ -6,7 +6,7 @@ data "terraform_remote_state" "db" {
 	config {
 		bucket 	= "${var.db_remote_state_bucket}"
 		key 		= "${var.db_remote_state_key}"
-		region 	= "us-east-1"
+		region 	= "${var.in_region}"
 	}
 }
 
@@ -36,8 +36,8 @@ resource "aws_autoscaling_group" "my_auto_scaling" {
 	load_balancers 				= ["${aws_elb.my_elb_asg.name}"]
 	health_check_type	 		= "ELB"
 
-	min_size = 3
-	max_size = 3
+	min_size = "${var.min_size}"
+	max_size = "${var.max_size}"
 
 	tag {
 		key									= "${var.cluster_name}-auto-scaling"
@@ -96,13 +96,4 @@ resource "aws_security_group" "sg_elb" {
 		protocol 		= "-1"
 		cidr_blocks	= ["0.0.0.0/0"]
 	}
-}
-
-terraform {
-  backend "s3" {
-    bucket    = "s3-status"
-    key       = "example2/stage/services/webserver-cluster/terraform.tfstate"
-    region    = "us-east-1"
-    encrypt   = true
-  }
 }

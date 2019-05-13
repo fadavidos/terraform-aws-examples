@@ -2,11 +2,11 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_db_instance" "ex2_example" {
+resource "aws_db_instance" "ex3_example" {
   engine              = "mysql"
   allocated_storage   = 10
   instance_class     = "db.t2.micro"
-  name                = "ex2_example_database"
+  name                = "ex3_example_database"
   username            =  "admin"
   password            = "${var.db_password}"
   skip_final_snapshot = "true"
@@ -15,7 +15,7 @@ resource "aws_db_instance" "ex2_example" {
 terraform {
   backend "s3" {
     bucket    = "s3-status"
-    key       = "example2/stage/services/data-stores/mysql/terraform.tfstate"
+    key       = "example3/stage/services/data-stores/mysql/terraform.tfstate"
     region    = "us-east-1"
     encrypt   = true
   }

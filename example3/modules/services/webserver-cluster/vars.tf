@@ -3,11 +3,6 @@ variable "in_server_port" {
   default     = 8080
 }
 
-variable "in_profile" {
-  description = "The name awscli's profile to use"
-  type        = "string"
-}
-
 variable "in_region" {
   description   = "Region's name where going to deploy"
   default       = "us-east-1"
@@ -29,4 +24,12 @@ variable "db_remote_state_bucket" {
 
 variable "db_remote_state_key" { 
   description = "The path for the database's remote state in S3" 
+}
+
+variable "min_size" {
+  description = "The minimum number of EC2 instances in the ASG"
+}
+
+variable "max_size" {
+  description = "The maximum number of EC2 instances in the ASG"
 }
