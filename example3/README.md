@@ -68,6 +68,18 @@ Ver el resumen de lo que se ejecutará:
 Finalmente para aplicar los cambios, se ejecuta:
 `terraform apply`
 
+But, if you want to run a complete environment, for example stage, you can do the following:
+
+```
+cd stage
+terragrunt apply-all -input=true
+```
+
+```
+cd prod
+terragrunt apply-all -input=true
+```
+
 ---
 
 ## Outputs:
