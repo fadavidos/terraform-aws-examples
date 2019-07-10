@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "s3_status" {
 terraform {
   backend "s3" {
     bucket    = "s3-status"
-    key       = "examples2/global/s3/terraform.tfstate"
+    key       = "example3/global/s3/terraform.tfstate"
     region    = "us-east-1"
     encrypt   = true
     profile   = "fabianosorio"

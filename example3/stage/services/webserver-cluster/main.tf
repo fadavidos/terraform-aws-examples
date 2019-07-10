@@ -22,9 +22,8 @@ resource "aws_security_group_rule" "allow_http_outbound" {
 }
 
 module "myWebServer" {
-  source = "../../../modules/services/webserver-cluster"
-
-  cluster_name = "webservers-stage" 
+  source = "git::git@github.com:fadavidos/modules-terraform-aws-examples.git//modules/services/webserver-cluster?ref=v0.0.1"
+  cluster_name = "webservers-stage"
   db_remote_state_bucket = "s3-status" 
   db_remote_state_key = "example3/stage/services/data-stores/mysql/terraform.tfstate"
   min_size = "2"
