@@ -8,15 +8,11 @@ resource "aws_db_instance" "ex3_example_prod" {
   instance_class      = "db.t2.micro"
   name                = "ex3_example_database_prod"
   username            = "admin"
-  password            = "${var.db_password}"
+  password            = var.db_password
   skip_final_snapshot = "true"
 }
 
 terraform {
-  backend "s3" {
-    bucket    = "s3-status"
-    key       = "example3/prod/services/data-stores/mysql/terraform.tfstate"
-    region    = "us-east-1"
-    encrypt   = true
-  }
+  backend "s3" {}
 }
+
